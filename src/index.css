@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+html {
+  font-size: 16px;
+}
+/* Tablet (14px = 1rem) */
+@media (max-width: 64rem) {
+  /* 1024px */
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Mobile (12px = 1rem) */
+@media (max-width: 48rem) {
+  /* 768px */
+  html {
+    font-size: 12px;
+  }
+}
+
+/* Small mobile (10px = 1rem) */
+@media (max-width: 30rem) {
+  /* 480px */
+  html {
+    font-size: 10px;
+  }
+}
+/* small mobile (8px=1rem) */
+/* 375px */
+@media (max-width: 23.5rem) {
+  html {
+    font-size: 8px;
+  }
+}
+/* 320px  */
+@media (max-width: 20rem) {
+  html {
+    font-size: 6px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Yeseva One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.text-center {
+  text-align: center;
+}
+/* for heading the every section */
+.sectionTitle {
+  color: #000;
+  font-size: clamp(2rem, 5vw, 3.75rem); /* 32px - 60px */
+  text-align: center;
+  padding: 0.625rem; /* 10px */
+  margin: 0;
+  font-family: Yeseva One;
+  font-weight: 400;
+  font-style: Regular;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+/* for subheading for sections */
+.subTitle {
+  color: #000;
+  opacity: 0.5;
+  text-align: center;
+  font-size: clamp(1.25rem, 3vw, 2.1875rem);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+/* for card container  */
+.cardContainer {
+  flex-wrap: wrap;
+  gap: 2rem 2.5rem;
+  margin-top: 2.5rem;
+}
+@media (min-width: 1400px) {
+  .cardContainer {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem 3.5rem;
+    margin-top: 2.5rem;
+  }
+}
+@media (min-width: 1450px) {
+  .cardContainer {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem 6.5rem;
+    margin-top: 2.5rem;
+  }
+}

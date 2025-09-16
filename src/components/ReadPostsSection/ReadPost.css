@@ -1,0 +1,16 @@
+.readPost {
+  padding: 3.75rem 8.3rem;
+  background: #fff2f2;
+}
+
+@media (min-width: 767px) and (max-width: 1025px) {
+  .readPost {
+    padding: 2.8rem 5.3rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .readPost {
+    padding: 2.8rem 4rem;
+  }
+}

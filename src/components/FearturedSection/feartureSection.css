@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins&display=swap");
+#featureBox {
+  background: linear-gradient(
+      rgba(255, 254, 254, 0.8),
+      rgba(255, 253, 253, 0.8)
+    ),
+    url("../../assets/section2.png");
+  background-size: cover;
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 3.75rem 8.3rem 3.75rem 8.3rem;
+}
+/* Title */
+
+/* Subtitle */
+/* .feartureSubTitle {
+  color: #000;
+  opacity: 0.5;
+  text-align: center;
+  font-size: clamp(1.25rem, 3vw, 2.1875rem);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+} */
+
+/* card container */
+
+/* .cardContainer {
+  flex-wrap: wrap;
+  gap: 2rem 2.5rem;
+  margin-top: 2.5rem;
+} */
+
+@media (min-width: 767px) and (max-width: 1025px) {
+  #featureBox {
+    padding: 2.8rem 5.3rem;
+  }
+}
+@media (max-width: 426px) {
+  #featureBox {
+    padding: 2.8rem 4rem;
+  }
+}
+/* @media (max-width: 23.5rem) {
+  html {
+    font-size: 8px;
+  }
+  #featureBox {
+    padding: 2.8rem 5.9rem;
+  }
+} */

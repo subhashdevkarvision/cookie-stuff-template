@@ -1,0 +1,26 @@
+.recipeGroup {
+  padding: 3.75rem 8.3rem;
+  background: #fff2f2;
+}
+
+/* .recipeGroup h4 {
+  font-size: 3.75rem;
+  margin: 0;
+  font-weight: normal;
+} */
+
+.viewAll {
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 767px) and (max-width: 1025px) {
+  .recipeGroup {
+    padding: 2.8rem 5.3rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .recipeGroup {
+    padding: 2.8rem 4rem;
+  }
+}

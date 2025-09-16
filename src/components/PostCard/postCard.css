@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@500&display=swap"); /* Card.css */
+.postCard {
+  width: 20.5rem;
+  height: 30rem;
+  /* border-radius: 1rem; */
+  /* box-shadow: 0 0.0625rem 0.25rem 0 rgba(0, 0, 0, 0.25); */
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.postCard img {
+  width: 100%;
+  height: 13rem;
+  object-position: center;
+  object-fit: cover;
+  border-top-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+.postCardContainer {
+  height: 15rem;
+  padding: 0.5rem 0;
+}
+.postTitle {
+  font-size: 1.5rem;
+}
+.postTime {
+  font-size: 1.25rem;
+  margin: 0;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+}
+.postDescription {
+  font-size: 1.05rem;
+  line-height: 150%;
+  font-weight: normal;
+  margin: 0.5rem 0;
+}
+.postBtn {
+  gap: 0.2rem;
+  font-family: "Yeseva One", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.25rem;
+  color: rgba(249, 145, 6, 1);
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+.postBtn i {
+  font-size: 0.8rem;
+}
+/* 900 px */
+@media (max-width: 56.25rem) {
+  .postCard {
+    width: 10rem;
+    height: 18rem;
+  }
+
+  .postCard img {
+    height: 9rem;
+  }
+
+  .postTitle {
+    font-size: 0.8375rem;
+  }
+
+  .postCardContainer {
+    height: 8rem;
+  }
+}
+@media (max-width: 426px) {
+  .postCard {
+    width: 90%;
+    height: 48rem;
+    gap: 1rem;
+  }
+
+  .postCard img {
+    height: 50%;
+  }
+
+  .postCardContainer {
+    height: 23rem;
+    /* padding: 2rem; */
+  }
+  .postTitle {
+    font-size: 2.5em;
+  }
+  .postTime {
+    font-size: 1.5rem;
+  }
+  .postDescription {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+  .postBtn {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 375px) {
+}
+
+@media (max-width: 1025px) and (min-width: 765px) {
+  .postCard {
+    width: 30%;
+    height: 26rem;
+  }
+
+  .postCard img {
+    height: 10rem;
+  }
+
+  .postCardContainer {
+    height: 16rem;
+    padding-top: 0.7rem;
+  }
+  .postTitle {
+    font-size: 1.3rem;
+  }
+  .postTime {
+    font-size: 1rem;
+  }
+  .postDescription {
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+  .postBtn {
+    font-size: 1rem;
+  }
+}

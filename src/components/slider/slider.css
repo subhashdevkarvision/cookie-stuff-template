@@ -1,0 +1,28 @@
+.sliderBox {
+  margin-top: 6.55rem;
+}
+.slick-dots {
+  bottom: 1rem;
+}
+.slick-dots ul {
+  padding: 0;
+}
+.slick-dots li button:before {
+  font-size: 1.5rem !important;
+  color: white !important;
+  opacity: 1 !important;
+}
+
+/* Active dot */
+.slick-dots li.slick-active button:before {
+  color: #f99106 !important;
+  opacity: 1 !important;
+}
+.slick-dots li {
+  margin: 0;
+}
+@media (min-width: 765px) {
+  .slick-dots li {
+    margin: 0 8px;
+  }
+}

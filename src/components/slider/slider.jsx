@@ -1,0 +1,40 @@
+import React from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import "./slider.css";
+import FrontSection from "../FrontSection/FrontSection";
+const SliderSection = () => {
+  const settings = {
+    dots: true,
+    arrows: false,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    // autoplay: true,
+    autoplaySpeed: 5000,
+    adaptiveHeight: true,
+  };
+  const slider = [1, 2, 3];
+  return (
+    <div className="sliderBox">
+      <Slider
+        {...settings}
+        appendDots={(dots) => (
+          <div className="flex-center dot">
+            <ul>{dots}</ul>
+          </div>
+        )}
+      >
+        {slider.map((s) => (
+          <div key={s}>
+            <FrontSection />
+          </div>
+        ))}
+      </Slider>
+    </div>
+  );
+};
+
+export default SliderSection;
