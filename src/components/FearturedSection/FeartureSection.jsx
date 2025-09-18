@@ -1,5 +1,5 @@
 import React from "react";
-import { FerturedFood } from "../../dataArray/DataArray";
+import { FerturedFood } from "../../Data/DataArray";
 import Card from "../Card/Card";
 import "./feartureSection.css";
 

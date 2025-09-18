@@ -1,6 +1,6 @@
 import React from "react";
 import "./healthyRecipes.css";
-import { food } from "../../dataArray/DataArray";
+import { food } from "../../data/DataArray";
 import Card from "../Card/Card";
 import ViewAllButton from "../viewAllButton/ViewAllButton";
 

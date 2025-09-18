@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import "./slider.css";
 import FrontSection from "../FrontSection/FrontSection";
+import SecondBanner from "../FrontSection/second-slider-img/SecondSliderBanner";
+import ThirdSliderBanner from "../FrontSection/third-slider-img/ThirdSliderBanner";
 const SliderSection = () => {
   const settings = {
     dots: true,
@@ -12,11 +14,10 @@ const SliderSection = () => {
     speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 5000,
     adaptiveHeight: true,
   };
-  const slider = [1, 2, 3];
   return (
     <div className="sliderBox">
       <Slider
@@ -27,11 +28,9 @@ const SliderSection = () => {
           </div>
         )}
       >
-        {slider.map((s) => (
-          <div key={s}>
-            <FrontSection />
-          </div>
-        ))}
+        <FrontSection />
+        <SecondBanner />
+        <ThirdSliderBanner />
       </Slider>
     </div>
   );

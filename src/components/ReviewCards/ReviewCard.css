@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@500&display=swap"); /* Card.css */
+.reviewCard {
+  border-radius: 1rem;
+  box-shadow: 0 0.0625rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  padding: 2.5rem 1.25rem;
+  margin: 1rem 1rem;
+  background: #ffffff;
+}
+.review-user {
+  gap: 1rem;
+}
+.user-Img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* user name  */
+.reviewCard h3 {
+  margin: 0;
+  padding: 0.2rem 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.user-role {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* user title  */
+.reviewCard h4 {
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 2.5rem;
+}
+
+/* user description */
+.reviewCard p {
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 1.125rem;
+  margin: 1.5rem 0;
+}
+
+/* ratings  */
+.user-ratings {
+  gap: 1rem;
+}
+.user-ratings .bi-star-fill {
+  color: #f99106;
+  font-size: 1.5rem;
+}
+.user-ratings .bi-star {
+  color: #f99106;
+  font-size: 1.5rem;
+}
+
+/* tablet size 768px to 1024px */
+@media (min-width: 765px) and (max-width: 1025px) {
+  .review-user {
+    gap: 2rem;
+  }
+
+  .user-Img {
+    height: 8rem;
+    width: 8rem;
+  }
+  .reviewCard h3 {
+    font-size: 1.7rem;
+  }
+  .user-role {
+    font-size: 1.4rem;
+  }
+
+  .reviewCard h4 {
+    font-size: 1.5rem;
+    margin: 2.5rem 0 1rem 0;
+  }
+  .reviewCard p {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+  }
+  .user-ratings .bi-star-fill {
+    font-size: 2.5rem;
+  }
+  .user-ratings .bi-star {
+    font-size: 2.5rem;
+  }
+}
+
+/* movie scree 375px to 426px */
+@media (max-width: 426px) and (min-width: 375px) {
+  .review-user {
+    gap: 2rem;
+  }
+
+  .user-Img {
+    height: 8rem;
+    width: 8rem;
+  }
+  .reviewCard h3 {
+    font-size: 2rem;
+  }
+  .user-role {
+    font-size: 1.6rem;
+  }
+
+  .reviewCard h4 {
+    font-size: 2rem;
+    margin: 2.5rem 0 1rem 0;
+  }
+  .reviewCard p {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+  .user-ratings .bi-star-fill {
+    font-size: 3rem;
+  }
+  .user-ratings .bi-star {
+    font-size: 3rem;
+  }
+}
+
+/* mobile screen */
+@media (max-width: 325px) {
+  .review-user {
+    gap: 3rem;
+  }
+
+  .user-Img {
+    height: 15rem;
+    width: 15rem;
+  }
+
+  .reviewCard h4 {
+    font-size: 3rem;
+    margin: 2.5rem 0 1rem 0;
+  }
+  .reviewCard p {
+    font-size: 2rem;
+    margin: 2rem 0;
+  }
+  .reviewCard h3 {
+    font-size: 3rem;
+  }
+  .user-role {
+    font-size: 2.125rem;
+  }
+  .user-ratings .bi-star-fill {
+    font-size: 5rem;
+  }
+  .user-ratings .bi-star {
+    font-size: 5rem;
+  }
+}

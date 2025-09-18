@@ -1,0 +1,183 @@
+.contactUs {
+  padding: 3.75rem 8.3rem;
+  background: rgba(255, 242, 242, 1);
+}
+
+.contact-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+  margin: 1rem 0;
+}
+.contact-title {
+  color: #000;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  text-align: center;
+  padding: 0.625rem;
+  margin: 0;
+  font-family: Yeseva One;
+  font-weight: 400;
+  font-style: Regular;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+.contact-header {
+  display: flex;
+  gap: clamp(2rem, 6vw, 5.5rem);
+  align-items: center;
+}
+.contact-logo {
+  width: clamp(120px, 20.7vw, 298px);
+  height: clamp(70px, 8.5vw, 123px);
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+.contact-description {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: start;
+}
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.link-group h4 {
+  font-size: clamp(1.25rem, 2vw, 1.875rem);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #f99106;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  font-weight: 400;
+}
+.link-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.link-group ul li {
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: clamp(0.875rem, 1.3vw, 2rem);
+}
+.link-group ul li i {
+  color: #f99106;
+  font-size: 0.9rem;
+}
+.link-group ul li:hover {
+  color: #f99106;
+}
+
+.link-group p {
+  margin: 0 0 0.5rem 0;
+  font-size: clamp(0.875rem, 1.3vw, 2rem);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.link-group strong {
+  font-weight: normal;
+  color: #333;
+}
+
+/* responsive styles */
+
+@media (max-width: 600px) {
+  .contact-title {
+    font-size: 4rem;
+  }
+  .contact-section {
+    padding: 2rem;
+  }
+  .contact-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .contact-description {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  .link-group h4 {
+    font-size: 2rem;
+    display: block;
+    width: 100%;
+    margin-top: 0;
+  }
+  .link-group ul li {
+    font-size: 1.5rem;
+  }
+  .link-group p {
+    font-size: 1.5rem;
+  }
+  .contact-links {
+    flex-direction: column;
+    text-align: start;
+  }
+}
+@media (max-width: 320px) {
+  .contact-title {
+    font-size: 4rem;
+  }
+  .contact-section {
+    padding: 2rem;
+  }
+  .contact-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .contact-description {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  .link-group h4 {
+    font-size: 3rem;
+    margin-top: 0;
+  }
+  .link-group ul li {
+    font-size: 2.1rem;
+  }
+  .link-group ul li i {
+    font-size: 2.1rem;
+  }
+  .link-group p {
+    font-size: 2.2rem;
+  }
+  .contact-links {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 1025px) {
+  .contactUs {
+    padding: 2.8rem 5.3rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .contactUs {
+    padding: 2.8rem 4rem;
+  }
+}

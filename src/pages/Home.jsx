@@ -1,12 +1,13 @@
 import React from "react";
 import Navbar from "../components/navbar/Navbar";
-import FrontSection from "../components/FrontSection/FrontSection";
 import Fearture from "../components/FearturedSection/FeartureSection";
 import FreeRecipes from "../components/FreeRecipes/FreeRecipes";
 import HealthyRecipes from "../components/HealthyRecipes/HealthyRecipes";
 import SliderSection from "../components/slider/slider";
 import ReadPost from "../components/ReadPostsSection/ReadPost";
-import ReviewSection from "../components/ReviewsSection/ReviewSection";
+import ContactUs from "../components/ContactUs/ContactUs";
+import Footer from "../components/Footer/Footer";
+import SwiperSlider from "../components/Swiper-slider/SwiperSlider";
 
 const Home = () => {
   return (
@@ -17,7 +18,9 @@ const Home = () => {
       <FreeRecipes />
       <HealthyRecipes />
       <ReadPost />
-      <ReviewSection />
+      <SwiperSlider />
+      <ContactUs />
+      <Footer />
     </div>
   );
 };

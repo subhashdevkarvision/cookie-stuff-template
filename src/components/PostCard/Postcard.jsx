@@ -10,7 +10,7 @@ const Postcard = ({ post }) => {
         <p className="postTime">{post.time}</p>
         <p className="postDescription">{post.description}</p>
         <button className="postBtn flex">
-          READ MORE <i class="bi bi-chevron-double-right"></i>
+          READ MORE <i className="bi bi-chevron-double-right"></i>
         </button>
       </div>
     </div>

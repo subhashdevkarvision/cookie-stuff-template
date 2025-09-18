@@ -1,5 +1,5 @@
 import React from "react";
-import { freeReceips } from "../../dataArray/DataArray";
+import { freeReceips } from "../../Data/DataArray";
 import Card from "../Card/Card";
 import "./freeRecipes.css";
 import ViewAllButton from "../viewAllButton/ViewAllButton";

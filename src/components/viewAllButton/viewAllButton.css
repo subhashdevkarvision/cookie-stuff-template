@@ -8,10 +8,27 @@
   border-radius: 0.625rem;
   font-size: 1.875rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+.viewAllButton:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+.viewAllButton span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.viewAllButton:hover span {
+  transform: translateX(5px);
 }
 
 @media (max-width: 64rem) {
   .viewAllButton {
     font-size: 1rem;
+    padding: 0.8rem 1.5rem;
   }
 }

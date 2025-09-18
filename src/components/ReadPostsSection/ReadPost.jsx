@@ -1,5 +1,5 @@
 import React from "react";
-import postData from "../../dataArray/PostData";
+import postData from "../../Data/PostData";
 import Postcard from "../PostCard/Postcard";
 import "./ReadPost.css";
 

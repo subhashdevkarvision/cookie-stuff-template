@@ -9,13 +9,7 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-/* .healthyRecipesBox h4 {
-  font-size: 3.75rem;
-  margin: 0;
-  font-family: Yeseva One;
-  font-weight: 400;
-  font-style: Regular;
-} */
+
 @media (max-width: 1025px) and (min-width: 767px) {
   .healthyRecipesBox {
     padding: 2.8rem 5.3rem;
@@ -24,5 +18,62 @@
 @media (max-width: 426px) {
   .healthyRecipesBox {
     padding: 2.8rem 4rem;
+  }
+}
+/* review slider */
+.reviewSlider {
+  margin: 5% 0 0 0;
+  height: fit-content;
+  position: relative;
+}
+
+/* Move bullets down */
+.reviewSlider .swiper-pagination {
+  bottom: -4rem !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+.swiper:not(.swiper-watch-progress),
+.swiper-watch-progress .swiper-slide-visible {
+  padding: 0 0 30px 0;
+}
+
+/* Bullet base style */
+.reviewSlider .swiper-pagination-bullet {
+  background: rgba(255, 225, 225, 1);
+  opacity: 1;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 5px !important;
+}
+
+/* Active bullet */
+.reviewSlider .swiper-pagination-bullet-active {
+  background: #f99106 !important;
+  opacity: 1;
+}
+
+/* Responsive spacing */
+@media (max-width: 800px) {
+  .reviewSlider .swiper-pagination-bullet {
+    margin: 0 5px !important;
+  }
+}
+@media (min-width: 425px) {
+  .swiper:not(.swiper-watch-progress),
+  .swiper-watch-progress .swiper-slide-visible {
+    padding: 0 0 40px 0;
+  }
+}
+@media (min-width: 768px) {
+  .swiper:not(.swiper-watch-progress),
+  .swiper-watch-progress .swiper-slide-visible {
+    padding: 0 0 50px 0;
+  }
+}
+@media (min-width: 1024px) {
+  .swiper:not(.swiper-watch-progress),
+  .swiper-watch-progress .swiper-slide-visible {
+    padding: 0 0 60px 0;
   }
 }
