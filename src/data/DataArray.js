@@ -12,6 +12,7 @@ import img11 from "../assets/img11.png";
 import img12 from "../assets/img12.png";
 export const FerturedFood = [
   {
+    id: 1,
     imgUrl: img1,
     title: "All in one Pack",
     access: "Lifetime Access",
@@ -21,8 +22,10 @@ export const FerturedFood = [
     price: "5000",
     discountedPrice: "500",
     courseType: "Free Course",
+    qty: 1,
   },
   {
+    id: 2,
     imgUrl: img2,
     title: "Healthy salad",
     access: "Lifetime Access",
@@ -32,8 +35,10 @@ export const FerturedFood = [
     price: "5000",
     discountedPrice: "500",
     courseType: "",
+    qty: 1,
   },
   {
+    id: 3,
     imgUrl: img3,
     title: "Soup and curry",
     access: "Lifetime Access",
@@ -43,8 +48,10 @@ export const FerturedFood = [
     price: "5000",
     discountedPrice: "500",
     courseType: "Certified Course",
+    qty: 1,
   },
   {
+    id: 4,
     imgUrl: img4,
     title: "All in one Pack",
     access: "Lifetime Access",
@@ -54,8 +61,10 @@ export const FerturedFood = [
     price: "5000",
     discountedPrice: "500",
     courseType: "Free Course",
+    qty: 1,
   },
   {
+    id: 5,
     imgUrl: img5,
     title: "All in one Pack",
     access: "Lifetime Access",
@@ -65,8 +74,10 @@ export const FerturedFood = [
     price: "5000",
     discountedPrice: "500",
     courseType: "Free Course",
+    qty: 1,
   },
   {
+    id: 6,
     imgUrl: img6,
     title: "All in one Pack",
     access: "Lifetime Access",
@@ -76,11 +87,13 @@ export const FerturedFood = [
     price: "5000",
     discountedPrice: "500",
     courseType: "Free Course",
+    qty: 1,
   },
 ];
 
 export const freeReceips = [
   {
+    id: 7,
     imgUrl: img7,
     title: "All in one Pack",
     access: "Lifetime Access",
@@ -90,8 +103,10 @@ export const freeReceips = [
     price: "5000",
     discountedPrice: "500",
     courseType: "Free Course",
+    qty: 1,
   },
   {
+    id: 8,
     imgUrl: img8,
     title: "All in one Pack",
     access: "Lifetime Access",
@@ -101,8 +116,10 @@ export const freeReceips = [
     price: "5000",
     discountedPrice: "500",
     courseType: "Free Course",
+    qty: 1,
   },
   {
+    id: 9,
     imgUrl: img9,
     title: "All in one Pack",
     access: "Lifetime Access",
@@ -112,10 +129,12 @@ export const freeReceips = [
     price: "5000",
     discountedPrice: "500",
     courseType: "Free Course",
+    qty: 1,
   },
 ];
 export const food = [
   {
+    id: 10,
     imgUrl: img10,
     title: "All in one Pack",
     access: "Lifetime Access",
@@ -125,8 +144,10 @@ export const food = [
     price: "5000",
     discountedPrice: "500",
     courseType: "Free Course",
+    qty: 1,
   },
   {
+    id: 11,
     imgUrl: img11,
     title: "Healthy salad",
     access: "Lifetime Access",
@@ -136,8 +157,10 @@ export const food = [
     price: "5000",
     discountedPrice: "500",
     courseType: "Free Course",
+    qty: 1,
   },
   {
+    id: 12,
     imgUrl: img12,
     title: "All in one Pack",
     access: "Lifetime Access",
@@ -147,5 +170,6 @@ export const food = [
     price: "5000",
     discountedPrice: "500",
     courseType: "Free Course",
+    qty: 1,
   },
 ];

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo.png";
-import searchVector from "../../assets/search-Vector.png";
+// import searchVector from "../../assets/search-Vector.png";
 import "./navbar.css";
+import { useSelector } from "react-redux";
 
-const Navbar = () => {
+const Navbar = ({ handleOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const products = useSelector((state) => state.products);
+
   return (
     <div id="navWrapper">
       <nav>
@@ -20,7 +23,16 @@ const Navbar = () => {
         </ul>
 
         <div className={`btns${isOpen ? " show" : ""}`}>
-          <img src={searchVector} className="searchIcon" alt="" />
+          {/* <img src={searchVector} className="searchIcon" alt="" /> */}
+          <div className="cart-wrapper">
+            <button
+              onClick={handleOpen}
+              className="bi bi-cart4 cart-icon"
+            ></button>
+            {products.length > 0 && (
+              <span className="cart-badge">{products.length}</span>
+            )}
+          </div>
           <span>Sign In</span>
           <button className="signupBtn">Sign Out</button>
         </div>

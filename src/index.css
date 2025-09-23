@@ -118,3 +118,13 @@ body {
     margin-top: 2.5rem;
   }
 }
+
+/* quantity btns  */
+.quantityBtns {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  /* border: 1px solid black; */
+}
