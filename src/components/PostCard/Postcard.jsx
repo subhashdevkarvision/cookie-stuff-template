@@ -1,5 +1,6 @@
 import React from "react";
 import "./postCard.css";
+import { Link } from "react-router";
 
 const Postcard = ({ post }) => {
   return (
@@ -9,9 +10,11 @@ const Postcard = ({ post }) => {
         <span className="postTitle">{post.title}</span>
         <p className="postTime">{post.time}</p>
         <p className="postDescription">{post.description}</p>
-        <button className="postBtn flex">
-          READ MORE <i className="bi bi-chevron-double-right"></i>
-        </button>
+        <Link to={`/posts/${post.id}`} state={{ post }}>
+          <button className="postBtn flex">
+            READ MORE <i className="bi bi-chevron-double-right"></i>
+          </button>
+        </Link>
       </div>
     </div>
   );

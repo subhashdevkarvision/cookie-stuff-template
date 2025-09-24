@@ -1,0 +1,11 @@
+.light {
+  margin: 10rem 0;
+  background: #fff;
+  color: black;
+}
+
+.dark {
+  margin: 10rem 0;
+  background: black;
+  color: white;
+}

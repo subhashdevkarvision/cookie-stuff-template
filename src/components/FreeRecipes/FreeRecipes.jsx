@@ -1,16 +1,17 @@
 import React from "react";
-import { freeReceips } from "../../Data/DataArray";
 import Card from "../Card/Card";
 import "./freeRecipes.css";
 import ViewAllButton from "../viewAllButton/ViewAllButton";
+import { useSelector } from "react-redux";
 
 const FreeRecipes = () => {
+  const freeReceipsItem = useSelector((state) => state.freeReceips);
   return (
     <div className="recipeGroup">
       <h4 className="text-center sectionTitle">Free Recipes</h4>
       <div className="cardContainer flex-center">
-        {freeReceips.length > 0 &&
-          freeReceips.map((item, index) => (
+        {freeReceipsItem.length > 0 &&
+          freeReceipsItem.map((item, index) => (
             <Card foodItem={item} key={index} />
           ))}
       </div>

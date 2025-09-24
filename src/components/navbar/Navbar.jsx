@@ -3,6 +3,7 @@ import logo from "../../assets/logo.png";
 // import searchVector from "../../assets/search-Vector.png";
 import "./navbar.css";
 import { useSelector } from "react-redux";
+import { Link, NavLink } from "react-router";
 
 const Navbar = ({ handleOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,15 +12,45 @@ const Navbar = ({ handleOpen }) => {
   return (
     <div id="navWrapper">
       <nav>
-        <div className="nav-left">
-          <img src={logo} className="logo" alt="" />
-        </div>
+        <Link to={"/"}>
+          <div className="nav-left">
+            <img src={logo} className="logo" alt="" />
+          </div>
+        </Link>
 
         <ul className={`homeList${isOpen ? " show" : ""}`}>
-          <li className="active">Home</li>
-          <li>All Courses</li>
-          <li>Contact Us</li>
-          <li>Posts</li>
+          <li>
+            <NavLink
+              to={"/"}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/courses"}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              All Courses
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/contact-us"}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Contact Us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={"/posts"}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Posts
+            </NavLink>
+          </li>
         </ul>
 
         <div className={`btns${isOpen ? " show" : ""}`}>

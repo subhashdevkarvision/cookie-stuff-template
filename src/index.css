@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@500&display=swap");
+@import "tailwindcss";
 html {
   font-size: 16px;
 }
@@ -127,4 +128,27 @@ body {
   align-items: center;
   gap: 1rem;
   /* border: 1px solid black; */
+}
+
+/* single page style  */
+.light {
+  margin: 6rem 0 0 0;
+  background: #fff;
+  color: black;
+}
+
+.dark {
+  margin: 6rem 0 0 0;
+  background: black;
+  color: white;
+}
+
+/* font style  */
+
+.yeseva-one-font {
+  font-family: Yeseva One;
+}
+
+.poppins-font {
+  font-family: Poppins;
 }

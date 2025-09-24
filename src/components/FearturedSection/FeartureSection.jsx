@@ -1,10 +1,10 @@
 import React from "react";
-import { FerturedFood } from "../../Data/DataArray";
 import Card from "../Card/Card";
 import "./feartureSection.css";
+import { useSelector } from "react-redux";
 
 const Fearture = () => {
-  //   console.log(food);
+  const fertureItems = useSelector((state) => state.FerturedFood);
   return (
     <div id="featureBox">
       <div>
@@ -16,8 +16,8 @@ const Fearture = () => {
         </h4>
       </div>
       <div className="cardContainer flex-center">
-        {FerturedFood.length !== 0 &&
-          FerturedFood.map((item, index) => (
+        {fertureItems.length !== 0 &&
+          fertureItems.map((item, index) => (
             <Card key={index} foodItem={item}></Card>
           ))}
       </div>

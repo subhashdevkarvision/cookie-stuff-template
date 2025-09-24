@@ -11,7 +11,7 @@ const Card = ({ foodItem }) => {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
-  
+
   const handleIncrementQty = (id) => {
     const product = products.find((p) => p.id === id);
     if (product) {
@@ -99,7 +99,7 @@ const Card = ({ foodItem }) => {
         <button
           className="add-to-cart-btn"
           onClick={() => {
-            console.log({ ...foodItem, qty }), handleAddToCart(foodItem, qty);
+            handleAddToCart(foodItem, qty);
           }}
         >
           Add to Cart

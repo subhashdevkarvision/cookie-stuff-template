@@ -1,0 +1,6 @@
+#course-bg-img {
+  background-image: url(../src/assets/course-Bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
