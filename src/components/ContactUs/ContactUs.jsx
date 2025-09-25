@@ -1,8 +1,10 @@
 import React from "react";
 import "./ContactUs.css";
 import contactLogo from "../../assets/logoContact.png";
+import { useNavigate } from "react-router";
 
 const ContactUs = () => {
+  const navigate = useNavigate();
   return (
     <div className="contactUs">
       <h3 className="contact-title">Contact Us</h3>
@@ -24,13 +26,13 @@ const ContactUs = () => {
           <div className="link-group">
             <h4>Navigation</h4>
             <ul>
-              <li>
+              <li onClick={() => navigate("/courses")}>
                 <i className="bi bi-caret-right-fill"></i> All Course
               </li>
-              <li>
+              <li onClick={() => navigate("/contact-us")}>
                 <i className="bi bi-caret-right-fill"></i> Contact Us
               </li>
-              <li>
+              <li onClick={() => navigate("/posts")}>
                 <i className="bi bi-caret-right-fill"></i> Posts
               </li>
             </ul>

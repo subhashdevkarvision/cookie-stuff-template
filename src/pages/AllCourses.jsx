@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/navbar/Navbar";
 import Card from "../components/Card/Card";
 import Footer from "../components/Footer/Footer";
 import { useSelector } from "react-redux";
+import CartModal from "../components/navbar/CartModal";
 
 const AllCourses = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const products = useSelector((state) => state.FerturedFood);
   return (
     <div>
-      <Navbar />
-      <div style={{ margin: "10rem 0" }}>
-        <h1 style={{ textAlign: "center" }}>All Courses</h1>
+      <Navbar handleOpen={handleOpen} />
+      <CartModal open={open} handleClose={handleClose} />
+      <div className="px-[4rem] md:px-[5.3rem]" style={{ margin: "10rem 0" }}>
+        <h1 className="text-center text-4xl mb-10">All Courses</h1>
         <div
           style={{
             display: "flex",

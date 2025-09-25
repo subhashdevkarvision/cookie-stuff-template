@@ -4,10 +4,10 @@ import "./freeRecipes.css";
 import ViewAllButton from "../viewAllButton/ViewAllButton";
 import { useSelector } from "react-redux";
 
-const FreeRecipes = () => {
+const FreeRecipes = ({ backgroundColor }) => {
   const freeReceipsItem = useSelector((state) => state.freeReceips);
   return (
-    <div className="recipeGroup">
+    <div style={{ background: backgroundColor }} className={"recipeGroup"}>
       <h4 className="text-center sectionTitle">Free Recipes</h4>
       <div className="cardContainer flex-center">
         {freeReceipsItem.length > 0 &&

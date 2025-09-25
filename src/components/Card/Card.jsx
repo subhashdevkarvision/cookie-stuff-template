@@ -6,11 +6,13 @@ import {
   decrementFromCart,
   incrementItems,
 } from "../../featuresSlice/featureSlices";
+import { Link, useNavigate } from "react-router";
 
 const Card = ({ foodItem }) => {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
+  const navigate = useNavigate();
 
   const handleIncrementQty = (id) => {
     const product = products.find((p) => p.id === id);
@@ -46,7 +48,7 @@ const Card = ({ foodItem }) => {
     }
   }, [products]);
   return (
-    <div id="card">
+    <div id="card" onClick={() => navigate(`/courses/${foodItem.id}`)}>
       <img src={foodItem.imgUrl} id="CardImg" alt={foodItem.title} />
       <div id="cardContentBox">
         <div className="cardTitle">{foodItem.title}</div>
@@ -78,7 +80,10 @@ const Card = ({ foodItem }) => {
               borderRadius: "0.5rem",
               cursor: "pointer",
             }}
-            onClick={() => handleIncrementQty(foodItem.id)}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleIncrementQty(foodItem.id);
+            }}
           >
             +
           </button>
@@ -91,14 +96,18 @@ const Card = ({ foodItem }) => {
               borderRadius: "0.5rem",
               cursor: "pointer",
             }}
-            onClick={() => handleDecrementQty(foodItem.id)}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleDecrementQty(foodItem.id);
+            }}
           >
             -
           </button>
         </div>
         <button
           className="add-to-cart-btn"
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation();
             handleAddToCart(foodItem, qty);
           }}
         >

@@ -20,7 +20,7 @@ const Home = () => {
       <CartModal open={open} handleClose={handleClose} />
       <SliderSection />
       <Fearture />
-      <FreeRecipes />
+      <FreeRecipes backgroundColor={"#fff2f2"} />
       <HealthyRecipes />
       <ReadPost />
       <SwiperSlider />

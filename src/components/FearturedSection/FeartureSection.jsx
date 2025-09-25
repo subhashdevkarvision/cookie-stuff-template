@@ -15,7 +15,7 @@ const Fearture = () => {
           Traning Courses
         </h4>
       </div>
-      <div className="cardContainer flex-center">
+      <div className="cardContainer">
         {fertureItems.length !== 0 &&
           fertureItems.map((item, index) => (
             <Card key={index} foodItem={item}></Card>

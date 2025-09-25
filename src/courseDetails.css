@@ -3,4 +3,42 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 7rem 8.3rem 7rem 8.3rem;
+}
+
+#image-list-container {
+  align-items: start;
+}
+
+.contact-details-section {
+  padding: 0 8.3rem 0 8.3rem;
+}
+.list-items {
+  font-weight: 500;
+}
+
+@media (min-width: 767px) and (max-width: 1025px) {
+  .contact-details-section {
+    padding: 0 5.3rem;
+  }
+  #course-bg-img {
+    padding: 7rem 5.3rem;
+  }
+}
+@media (max-width: 426px) {
+  .contact-details-section {
+    padding: 0 4rem;
+  }
+  #course-bg-img {
+    padding: 7rem 4rem;
+  }
+}
+
+.details-list li {
+  align-items: start;
+  margin: 2rem 0 0 0;
+}
+
+.share-list-container {
+  align-items: start;
 }

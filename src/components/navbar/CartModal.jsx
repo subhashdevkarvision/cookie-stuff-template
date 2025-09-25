@@ -13,6 +13,7 @@ import {
   Button,
   Fade,
   TablePagination,
+  TableFooter,
 } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -244,30 +245,40 @@ const CartModal = ({ open, handleClose }) => {
                   </TableCell>
                 </TableRow>
               </TableBody>
+              <TableFooter>
+                <TableRow>
+                  <TablePagination
+                    sx={{
+                      "& .MuiTablePagination-toolbar": {
+                        fontSize: {
+                          xs: "1.2rem",
+                          sm: "0.9rem",
+                          md: "1rem",
+                        },
+                      },
+                      "& .MuiTablePagination-actions": {
+                        "& .MuiIconButton-root": {
+                          fontSize: { xs: "2rem", sm: "1.2rem" },
+                        },
+                      },
+                      "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows":
+                        {
+                          fontSize: {
+                            xs: "1.2rem",
+                            sm: "0.9rem",
+                            md: "1rem",
+                          },
+                        },
+                    }}
+                    count={products.length}
+                    rowsPerPage={rowsPerPage}
+                    page={tablePage}
+                    onPageChange={(e, value) => setTablePage(value)}
+                    rowsPerPageOptions={[]}
+                  />
+                </TableRow>
+              </TableFooter>
             </Table>
-            <div className="flex" style={{ justifyContent: "end" }}>
-              <TablePagination
-                sx={{
-                  "& .MuiTablePagination-toolbar": {
-                    fontSize: { xs: "1.2rem", sm: "0.9rem", md: "1rem" },
-                  },
-                  "& .MuiTablePagination-actions": {
-                    "& .MuiIconButton-root": {
-                      fontSize: { xs: "2rem", sm: "1.2rem" },
-                    },
-                  },
-                  "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows":
-                    {
-                      fontSize: { xs: "1.2rem", sm: "0.9rem", md: "1rem" },
-                    },
-                }}
-                count={products.length}
-                rowsPerPage={rowsPerPage}
-                page={tablePage}
-                onPageChange={(e, value) => setTablePage(value)}
-                rowsPerPageOptions={[]}
-              />
-            </div>
           </TableContainer>
         </Box>
       </Modal>

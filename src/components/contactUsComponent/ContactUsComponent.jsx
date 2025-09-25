@@ -20,9 +20,11 @@ const ContactUsComponent = () => {
 
   return (
     <div className="contact-container">
-      <h2>Contact Us</h2>
+      <h2 className="text-center text-6xl sm:text-4xl">Contact Us</h2>
       <form className="contact-form" onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
+        <label className="text-4xl sm:text-2xl" htmlFor="name">
+          Name
+        </label>
         <input
           id="name"
           type="text"
@@ -33,7 +35,9 @@ const ContactUsComponent = () => {
           required
         />
 
-        <label htmlFor="email">Email</label>
+        <label className="text-4xl sm:text-2xl" htmlFor="email">
+          Email
+        </label>
         <input
           id="email"
           type="email"
@@ -44,7 +48,9 @@ const ContactUsComponent = () => {
           required
         />
 
-        <label htmlFor="message">Message</label>
+        <label className="text-4xl sm:text-2xl" htmlFor="message">
+          Message
+        </label>
         <textarea
           id="message"
           name="message"

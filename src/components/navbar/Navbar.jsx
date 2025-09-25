@@ -70,7 +70,9 @@ const Navbar = ({ handleOpen }) => {
         <div className="ham">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={isOpen ? "bi bi-x-lg" : "bi bi-list"}
+            className={
+              isOpen ? "bi bi-x-lg text-black" : "bi bi-list text-black"
+            }
           ></button>
         </div>
       </nav>

@@ -99,6 +99,8 @@ body {
 
 /* for card container  */
 .cardContainer {
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 2rem 2.5rem;
   margin-top: 2.5rem;
