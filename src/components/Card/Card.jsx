@@ -49,7 +49,11 @@ const Card = ({ foodItem }) => {
   }, [products]);
   return (
     <div id="card" onClick={() => navigate(`/courses/${foodItem.id}`)}>
-      <img src={foodItem.imgUrl} id="CardImg" alt={foodItem.title} />
+      <img
+        src={`http://localhost:4000/${foodItem.imgUrl}`}
+        id="CardImg"
+        alt={foodItem.title}
+      />
       <div id="cardContentBox">
         <div className="cardTitle">{foodItem.title}</div>
         <div className="cardTitle">({foodItem.access})</div>

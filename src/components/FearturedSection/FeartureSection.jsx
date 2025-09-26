@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import "./feartureSection.css";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+import axios from "axios";
 
 const Fearture = () => {
-  const fertureItems = useSelector((state) => state.FerturedFood);
+  const [fertureItems, setFertureItems] = useState([]);
+  // const fertureItems = useSelector((state) => state.FerturedFood);
+  const featureHandler = async () => {
+    try {
+      const response = await axios.get("http://localhost:4000/courses/course");
+      if (response.data.success) {
+        setFertureItems(response.data.coursesData);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    featureHandler();
+  }, []);
   return (
     <div id="featureBox">
       <div>
@@ -17,9 +32,12 @@ const Fearture = () => {
       </div>
       <div className="cardContainer">
         {fertureItems.length !== 0 &&
-          fertureItems.map((item, index) => (
-            <Card key={index} foodItem={item}></Card>
-          ))}
+          fertureItems.map(
+            (item, index) =>
+              item.category === "Featured" && (
+                <Card key={index} foodItem={item}></Card>
+              )
+          )}
       </div>
     </div>
   );
