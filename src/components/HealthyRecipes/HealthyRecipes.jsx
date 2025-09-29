@@ -1,19 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./healthyRecipes.css";
 import Card from "../Card/Card";
 import ViewAllButton from "../viewAllButton/ViewAllButton";
-import { useSelector } from "react-redux";
+import axios from "axios";
 
 const HealthyRecipes = () => {
-  const healthyRecipesItems = useSelector((state) => state.food);
+  const [healthyRecipesItems, setHealthyRecipesItems] = useState([]);
+  const fetchData = async () => {
+    try {
+      const res = await axios.get("http://localhost:4000/courses/course");
+      if (res.data.success) {
+        setHealthyRecipesItems(res.data.coursesData);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div className="healthyRecipesBox">
       <h4 className="text-center sectionTitle">Healthy & Tasty Recipes</h4>
       <div className="cardContainer flex-center">
         {healthyRecipesItems.length > 0 &&
-          healthyRecipesItems.map((item, index) => (
-            <Card key={index} foodItem={item} />
-          ))}
+          healthyRecipesItems.map(
+            (item, index) =>
+              item.category === "HealthyRecepies" && (
+                <Card key={index} foodItem={item} />
+              )
+          )}
       </div>
       <div className="flex-center viewAll">
         <ViewAllButton />

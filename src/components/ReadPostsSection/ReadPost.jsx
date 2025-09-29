@@ -4,7 +4,7 @@ import "./ReadPost.css";
 import { useSelector } from "react-redux";
 
 const ReadPost = () => {
-  const readPosts = useSelector((state) => state.postData);
+  const readPosts = useSelector((state) => state.product.postData);
   return (
     <div className="readPost">
       <h3 className="sectionTitle">Read Our Post</h3>

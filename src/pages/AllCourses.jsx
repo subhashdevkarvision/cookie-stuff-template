@@ -1,15 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar/Navbar";
 import Card from "../components/Card/Card";
 import Footer from "../components/Footer/Footer";
-import { useSelector } from "react-redux";
 import CartModal from "../components/navbar/CartModal";
+import axios from "axios";
 
 const AllCourses = () => {
   const [open, setOpen] = useState(false);
+  const [products, setProducts] = useState([]);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const products = useSelector((state) => state.FerturedFood);
+  const fetchData = async () => {
+    try {
+      const res = await axios.get("http://localhost:4000/courses/course");
+      if (res.data.success) {
+        setProducts(res.data.coursesData);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div>
       <Navbar handleOpen={handleOpen} />
@@ -24,10 +38,6 @@ const AllCourses = () => {
             flexWrap: "wrap",
           }}
         >
-          {products.length > 0 &&
-            products.map((item, index) => <Card key={index} foodItem={item} />)}
-          {products.length > 0 &&
-            products.map((item, index) => <Card key={index} foodItem={item} />)}
           {products.length > 0 &&
             products.map((item, index) => <Card key={index} foodItem={item} />)}
         </div>

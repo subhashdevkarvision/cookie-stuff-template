@@ -19,23 +19,28 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  incrementItems,
-  decrementFromCart,
-  removeFromCart,
-} from "../../featuresSlice/featureSlices";
+// import {
+//   incrementItems,
+//   decrementFromCart,
+//   removeFromCart,
+// } from "../../featuresSlice/featureSlices";
 import "./CartModal.css";
+import {
+  decreamentCartApi,
+  fetchCart,
+  increamentCartApi,
+  removeFromCartApi,
+} from "../../featuresSlice/cartSlices";
 
 const CartModal = ({ open, handleClose }) => {
-  const dispatch = useDispatch();
-  const products = useSelector((state) => state.products);
-
   const [tablePage, setTablePage] = useState(0);
   const rowsPerPage = 3;
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.cart.cartItems);
 
   const displayTableItems = products.slice(
     tablePage * rowsPerPage,
@@ -50,12 +55,14 @@ const CartModal = ({ open, handleClose }) => {
     setConfirmOpen(false);
     setSelectedItem(null);
   };
-  const handleConfirmDelete = () => {
+  const handleConfirmDelete = async () => {
     if (selectedItem) {
-      dispatch(removeFromCart({ id: selectedItem.id }));
+      dispatch(removeFromCartApi(selectedItem.courseId._id));
+
       handleConfirmClose();
     }
   };
+
   const totalQty = products.reduce((total, item) => {
     total += item.qty;
     return total;
@@ -64,6 +71,9 @@ const CartModal = ({ open, handleClose }) => {
     total += item.discountedPrice * item.qty;
     return total;
   }, 0);
+  useEffect(() => {
+    dispatch(fetchCart());
+  }, []);
   return (
     <>
       {/* Main Cart Modal */}
@@ -135,7 +145,11 @@ const CartModal = ({ open, handleClose }) => {
                         }}
                         align="center"
                       >
-                        <img src={item.imgUrl} className="cart-img" alt="" />
+                        <img
+                          src={`http://localhost:4000/${item.courseId.imgUrl}`}
+                          className="cart-img"
+                          alt=""
+                        />
                       </TableCell>
                       <TableCell
                         sx={{
@@ -143,7 +157,7 @@ const CartModal = ({ open, handleClose }) => {
                         }}
                         align="center"
                       >
-                        {item.title}
+                        {item.courseId.title}
                       </TableCell>
                       <TableCell
                         sx={{
@@ -151,7 +165,7 @@ const CartModal = ({ open, handleClose }) => {
                         }}
                         align="center"
                       >
-                        &#8377;{item.discountedPrice}
+                        &#8377;{item.courseId.discountedPrice}
                       </TableCell>
                       <TableCell
                         sx={{
@@ -159,7 +173,7 @@ const CartModal = ({ open, handleClose }) => {
                         }}
                         align="center"
                       >
-                        &#8377;{item.discountedPrice * item.qty}
+                        &#8377;{item.courseId.discountedPrice * item.qty}
                       </TableCell>
                       <TableCell
                         sx={{
@@ -169,16 +183,18 @@ const CartModal = ({ open, handleClose }) => {
                       >
                         <div className="qty-buttons">
                           <Button
-                            onClick={() =>
-                              dispatch(incrementItems({ id: item.id }))
+                            onClick={
+                              () =>
+                                dispatch(increamentCartApi(item.courseId._id))
                             }
                           >
                             <AddCircleIcon fontSize="large" />
                           </Button>
                           {item.qty}
                           <Button
-                            onClick={() =>
-                              dispatch(decrementFromCart({ id: item.id }))
+                            onClick={
+                              () =>
+                                dispatch(decreamentCartApi(item.courseId._id))
                             }
                           >
                             <RemoveCircleIcon fontSize="large" />

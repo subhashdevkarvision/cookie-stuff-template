@@ -1,52 +1,54 @@
 import React, { useEffect, useState } from "react";
 import "./card.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addToCart,
-  decrementFromCart,
-  incrementItems,
-} from "../../featuresSlice/featureSlices";
 import { Link, useNavigate } from "react-router";
+import {
+  addToCartApi,
+  decreamentCartApi,
+  fetchCart,
+  increamentCartApi,
+} from "../../featuresSlice/cartSlices";
 
 const Card = ({ foodItem }) => {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products);
+  const products = useSelector((state) => state.cart.cartItems);
   const navigate = useNavigate();
 
-  const handleIncrementQty = (id) => {
-    const product = products.find((p) => p.id === id);
+  const handleIncrementQty = async (id) => {
+    const product = products.find((p) => p.courseId._id === id);
     if (product) {
       setQty((prev) => {
         prev = product.qty + 1;
         return prev;
       });
-      dispatch(incrementItems({ id }));
+      dispatch(increamentCartApi(id));
     } else {
       setQty((prev) => (prev += 1));
     }
   };
-  const handleDecrementQty = (id) => {
-    const product = products.find((p) => p.id === id);
+  const handleDecrementQty = async (id) => {
+    const product = products.find((p) => p.courseId.id === id);
     if (product) {
       setQty((prev) => {
         prev = product.qty - 1;
         return prev;
       });
-      dispatch(decrementFromCart({ id }));
+      dispatch(decreamentCartApi(id));
     } else if (qty > 1) {
       setQty((prev) => (prev -= 1));
     }
   };
-  const handleAddToCart = (item, qty) => {
-    dispatch(addToCart({ ...item, qty }));
+  const handleAddToCart = async (item, qty) => {
+    dispatch(addToCartApi({ id: item._id, qty }));
   };
   useEffect(() => {
-    const product = products.find((item) => item.id === foodItem.id);
+    dispatch(fetchCart());
+    const product = products.find((item) => item.courseId._id === foodItem._id);
     if (product) {
       setQty(product.qty);
     }
-  }, [products]);
+  }, []);
   return (
     <div id="card" onClick={() => navigate(`/courses/${foodItem.id}`)}>
       <img
@@ -86,7 +88,7 @@ const Card = ({ foodItem }) => {
             }}
             onClick={(e) => {
               e.stopPropagation();
-              handleIncrementQty(foodItem.id);
+              handleIncrementQty(foodItem._id);
             }}
           >
             +
@@ -102,7 +104,7 @@ const Card = ({ foodItem }) => {
             }}
             onClick={(e) => {
               e.stopPropagation();
-              handleDecrementQty(foodItem.id);
+              handleDecrementQty(foodItem._id);
             }}
           >
             -

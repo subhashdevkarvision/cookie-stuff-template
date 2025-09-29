@@ -1,13 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
 // import searchVector from "../../assets/search-Vector.png";
 import "./navbar.css";
-import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router";
+// import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCart } from "../../featuresSlice/cartSlices";
 
 const Navbar = ({ handleOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.cart.cartItems);
+  // const [products, setProducts] = useState([]);
+
+  // const fetchcartItems = async () => {
+  //   try {
+  //     const res = await axios.get("http://localhost:4000/courses/cart");
+  //     console.log(res.data.cartData);
+  //     if (res.data.success) {
+  //       setProducts(res.data.cartData);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  useEffect(() => {
+    dispatch(fetchCart());
+    // fetchcartItems();
+  }, []);
 
   return (
     <div id="navWrapper">
