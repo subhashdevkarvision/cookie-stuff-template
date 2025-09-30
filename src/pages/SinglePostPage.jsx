@@ -4,19 +4,16 @@ import Footer from "../components/Footer/Footer";
 import { useLocation } from "react-router";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
 import CartModal from "../components/navbar/CartModal";
-// import { useSelector } from "react-redux";
 
 const SinglePostPage = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  // const { id } = useParams();
   const location = useLocation();
   const { post } = location.state;
 
   const { theme, toggleTheme } = useContext(GlobalContext);
-  // const postData = useSelector((state) => state.postData);
-  // const post = postData.find((item) => item.id === parseInt(id));
+
   if (!post) {
     return <h1>No post available</h1>;
   }

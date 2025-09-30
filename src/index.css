@@ -154,3 +154,8 @@ body {
 .poppins-font {
   font-family: Poppins;
 }
+
+/* register page  */
+.register-page {
+  align-items: start;
+}

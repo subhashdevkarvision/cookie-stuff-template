@@ -10,6 +10,8 @@ import SinglePostPage from "./pages/SinglePostPage";
 import GlobalContextProvider from "./GlobalContext/GlobalContextProvider";
 import ScrollToTop from "./components/ScrollToTop";
 import CourseDetails from "./pages/CourseDetails";
+import RegisterPage from "./pages/RegisterPage";
+import LoginPage from "./pages/LoginPage";
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
           <Route path="/courses/:id" element={<CourseDetails />} />
           <Route path="/posts" element={<PostsPage />} />
           <Route path="/posts/:id" element={<SinglePostPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </GlobalContextProvider>
     </>

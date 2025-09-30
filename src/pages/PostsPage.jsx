@@ -9,7 +9,8 @@ const PostsPage = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const posts = useSelector((state) => state.postData);
+  const posts = useSelector((state) => state.product.postData);
+  console.log(posts);
   return (
     <div>
       <Navbar handleOpen={handleOpen} />

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import { useParams } from "react-router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../../src/courseDetails.css";
 import user from "../assets/user1.jpg";
 import vector1 from "../assets/Vector1.png";
@@ -19,20 +19,34 @@ import FreeRecipes from "../components/FreeRecipes/FreeRecipes";
 import ContactUs from "../components/ContactUs/ContactUs";
 import CartModal from "../components/navbar/CartModal";
 import Card from "../components/Card/Card";
+import { fetchCourse } from "../featuresSlice/featureSlices";
+import axios from "axios";
 
 const CourseDetails = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const { id } = useParams();
+  const [course, setCourse] = useState({});
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.product.courses);
+  const fetchCourseById = async () => {
+    try {
+      const res = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/courses/course/${id}`
+      );
+      if (res.data.success) {
+        setCourse(res.data.course);
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+  useEffect(() => {
+    dispatch(fetchCourse());
+    fetchCourseById();
+  }, []);
 
-  const products = useSelector((state) => state.FerturedFood);
-
-  const courses = useSelector((state) => state.allFoodCourses);
-  const course = courses.find((c) => c.id === parseInt(id));
-  if (!course) {
-    return <h1>No Course is available</h1>;
-  }
   return (
     <div>
       <Navbar handleOpen={handleOpen} />
@@ -107,7 +121,7 @@ const CourseDetails = () => {
           {/* image container */}
           <div className="poppins-font w-full sm:w-[65%]">
             <img
-              src={course.imgUrl}
+              src={`http://localhost:4000/${course.imgUrl}`}
               className="w-full h-[300px] md:h-[200px] lg:h-[270px] xl:h-[320px] object-cover object-center rounded-t-2xl"
               alt=""
             />
@@ -157,7 +171,6 @@ const CourseDetails = () => {
             <p className="text-center bg-[#FFF2F2] shadow-md p-4 mb-5 text-5xl sm:text-3xl">
               Details
             </p>
-            {/* <div className="flex flex-wrap sm:flex-nowrap share-list-container"> */}
             <div className="poppins-font">
               <div className="flex flex-col sm:flex-row sm:justify-between share-list-container">
                 <div className="text-4xl md:text-xl sm:text-2xl flex gap-5 mb-10 sm:mb-4 sm:w-[45%] share-list-container">
@@ -201,44 +214,6 @@ const CourseDetails = () => {
                   <p>Free Lifetime Access</p>
                 </div>
               </div>
-              {/* <ul className="poppins-font details-list">
-                <li className="text-4xl sm:text-2xl flex gap-5">
-                  <span className="bi bi-arrow-right-circle-fill text-[#F99106]"></span>
-                  <p>FREE Mix Veg with Fried Potato Course</p>
-                </li>
-                <li className="text-4xl sm:text-2xl flex gap-5">
-                  <span className="bi bi-arrow-right-circle-fill text-[#F99106]"></span>
-                  <p>
-                    Step-by-step cooking video instructions + Detailed PDF notes
-                  </p>
-                </li>
-                <li className="text-4xl sm:text-2xl flex gap-5">
-                  <span className="bi bi-arrow-right-circle-fill text-[#F99106]"></span>
-                  <p>Learn from Experts</p>
-                </li>
-                <li className="text-4xl sm:text-2xl flex gap-5 ">
-                  <span className="bi bi-arrow-right-circle-fill text-[#F99106]"></span>
-                  <p>2,00,00+ Trained students</p>
-                </li>
-              </ul>
-              <ul className="poppins-font details-list">
-                <li className="text-4xl sm:text-2xl flex gap-5">
-                  <span className="bi bi-arrow-right-circle-fill text-[#F99106]"></span>
-                  <p>100% veg recipes</p>
-                </li>
-                <li className="text-4xl sm:text-2xl flex gap-5">
-                  <span className="bi bi-arrow-right-circle-fill text-[#F99106]"></span>
-                  <p>Doubt solving over call</p>
-                </li>
-                <li className="text-4xl sm:text-2xl flex gap-5">
-                  <span className="bi bi-arrow-right-circle-fill text-[#F99106]"></span>
-                  <p>Explore new recipes every day</p>
-                </li>
-                <li className="text-4xl sm:text-2xl flex gap-5">
-                  <span className="bi bi-arrow-right-circle-fill text-[#F99106]"></span>
-                  <p>Free Lifetime Access</p>
-                </li>
-              </ul> */}
             </div>
           </div>
         </div>
@@ -249,8 +224,13 @@ const CourseDetails = () => {
       <div className="my-10 contact-details-section">
         <h4 className="text-center text-5xl my-10">Free Recipes </h4>
         <div className="flex justify-center md:justify-between lg:justify-center  gap-10 flex-wrap">
-          {products.length > 0 &&
-            products.map((item, index) => <Card key={index} foodItem={item} />)}
+          {products?.length > 0 &&
+            products?.map(
+              (item, index) =>
+                item.category === "FreeRecepies" && (
+                  <Card key={index} foodItem={item} />
+                )
+            )}
         </div>
       </div>
       <ContactUs />

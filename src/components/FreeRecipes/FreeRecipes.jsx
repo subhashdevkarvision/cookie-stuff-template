@@ -8,7 +8,9 @@ const FreeRecipes = ({ backgroundColor }) => {
   const [freeReceipsItem, setFreeReceipsItem] = useState([]);
   const fetchData = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/courses/course");
+      const res = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/courses/course`
+      );
       if (res.data.success) {
         setFreeReceipsItem(res.data.coursesData);
       }

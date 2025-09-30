@@ -68,7 +68,7 @@ const CartModal = ({ open, handleClose }) => {
     return total;
   }, 0);
   const grandTotal = products.reduce((total, item) => {
-    total += item.discountedPrice * item.qty;
+    total += item.courseId.discountedPrice * item.qty;
     return total;
   }, 0);
   useEffect(() => {
@@ -183,18 +183,16 @@ const CartModal = ({ open, handleClose }) => {
                       >
                         <div className="qty-buttons">
                           <Button
-                            onClick={
-                              () =>
-                                dispatch(increamentCartApi(item.courseId._id))
+                            onClick={() =>
+                              dispatch(increamentCartApi(item.courseId._id))
                             }
                           >
                             <AddCircleIcon fontSize="large" />
                           </Button>
                           {item.qty}
                           <Button
-                            onClick={
-                              () =>
-                                dispatch(decreamentCartApi(item.courseId._id))
+                            onClick={() =>
+                              dispatch(decreamentCartApi(item.courseId._id))
                             }
                           >
                             <RemoveCircleIcon fontSize="large" />

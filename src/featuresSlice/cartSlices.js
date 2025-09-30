@@ -5,37 +5,47 @@ const initialState = {
   cartItems: [],
 };
 export const fetchCart = createAsyncThunk("fcart/etchCart", async () => {
-  const res = await axios.get("http://localhost:4000/courses/cart");
+  const res = await axios.get(
+    `${import.meta.env.VITE_BACKEND_URL}/courses/cart`
+  );
   return res.data.cartData;
 });
 export const addToCartApi = createAsyncThunk(
   "cart/addToCart",
-  async ({ id, qty }, { dispatch }) => {
-    await axios.post("http://localhost:4000/courses/add-to-cart", {
-      courseId: id,
-      qty,
-    });
+  async ({ id }, { dispatch }) => {
+    await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}/courses/add-to-cart`,
+      {
+        courseId: id,
+      }
+    );
     dispatch(fetchCart());
   }
 );
 export const increamentCartApi = createAsyncThunk(
   "cart/increament",
-  async (id, { dispatch }) => {
-    await axios.patch(`http://localhost:4000/courses/increament/${id}`);
+  async (courseId, { dispatch }) => {
+    await axios.patch(
+      `${import.meta.env.VITE_BACKEND_URL}/courses/increament/${courseId}`
+    );
     dispatch(fetchCart());
   }
 );
 export const decreamentCartApi = createAsyncThunk(
   "cart/decreament",
-  async (id, { dispatch }) => {
-    await axios.patch(`http://localhost:4000/courses/decreament/${id}`);
+  async (courseId, { dispatch }) => {
+    await axios.patch(
+      `${import.meta.env.VITE_BACKEND_URL}/courses/decreament/${courseId}`
+    );
     dispatch(fetchCart());
   }
 );
 export const removeFromCartApi = createAsyncThunk(
   "cart/removeCartItem",
   async (id, { dispatch }) => {
-    await axios.delete(`http://localhost:4000/courses/remove/${id}`);
+    await axios.delete(
+      `${import.meta.env.VITE_BACKEND_URL}/courses/remove/${id}`
+    );
     dispatch(fetchCart());
   }
 );

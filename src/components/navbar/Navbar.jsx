@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
 // import searchVector from "../../assets/search-Vector.png";
 import "./navbar.css";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 // import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCart } from "../../featuresSlice/cartSlices";
@@ -11,22 +11,9 @@ const Navbar = ({ handleOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.cart.cartItems);
-  // const [products, setProducts] = useState([]);
-
-  // const fetchcartItems = async () => {
-  //   try {
-  //     const res = await axios.get("http://localhost:4000/courses/cart");
-  //     console.log(res.data.cartData);
-  //     if (res.data.success) {
-  //       setProducts(res.data.cartData);
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const navigate = useNavigate();
   useEffect(() => {
     dispatch(fetchCart());
-    // fetchcartItems();
   }, []);
 
   return (
@@ -84,8 +71,10 @@ const Navbar = ({ handleOpen }) => {
               <span className="cart-badge">{products.length}</span>
             )}
           </div>
-          <span>Sign In</span>
-          <button className="signupBtn">Sign Out</button>
+          <span onClick={() => navigate("/login")}>Sign In</span>
+          <button onClick={() => navigate("/register")} className="signupBtn">
+            Sign Up
+          </button>
         </div>
         <div className="ham">
           <button
