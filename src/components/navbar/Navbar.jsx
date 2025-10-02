@@ -3,7 +3,7 @@ import logo from "../../assets/logo.png";
 import "./navbar.css";
 import { Link, NavLink, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserCart } from "../../reduxSlices/cartSlices";
+import { clearCart, fetchUserCart } from "../../reduxSlices/cartSlices";
 import { fetchUser, logOut } from "../../reduxSlices/userSlice";
 import toast from "react-hot-toast";
 
@@ -16,9 +16,11 @@ const Navbar = ({ handleOpen }) => {
 
   const navigate = useNavigate();
   useEffect(() => {
-    dispatch(fetchUser());
+    if (!user) {
+      dispatch(fetchUser());
+    }
     dispatch(fetchUserCart());
-  }, []);
+  }, [user]);
 
   return (
     <div id="navWrapper">
@@ -84,7 +86,7 @@ const Navbar = ({ handleOpen }) => {
               <button
                 onClick={() => {
                   dispatch(logOut());
-                  dispatch(fetchUserCart());
+                  dispatch(clearCart());
                   toast.success("Log Out successfully");
                 }}
                 className="signupBtn"

@@ -19,12 +19,11 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./cartModal.css";
 import {
   decreamentCartApi,
-  fetchUserCart,
   increamentCartApi,
   removeFromCartApi,
 } from "../../reduxSlices/cartSlices";
@@ -66,9 +65,7 @@ const CartModal = ({ open, handleClose }) => {
     total += item.courseId.discountedPrice * item.qty;
     return total;
   }, 0);
-  useEffect(() => {
-    dispatch(fetchUserCart());
-  }, []);
+
   return (
     <>
       {/* Main Cart Modal */}
@@ -181,18 +178,18 @@ const CartModal = ({ open, handleClose }) => {
                         <div className="qty-buttons">
                           <Button
                             onClick={() =>
-                              dispatch(increamentCartApi(item.courseId._id))
-                            }
-                          >
-                            <AddCircleIcon fontSize="large" />
-                          </Button>
-                          {item.qty}
-                          <Button
-                            onClick={() =>
                               dispatch(decreamentCartApi(item.courseId._id))
                             }
                           >
                             <RemoveCircleIcon fontSize="large" />
+                          </Button>
+                          {item.qty}
+                          <Button
+                            onClick={() =>
+                              dispatch(increamentCartApi(item.courseId._id))
+                            }
+                          >
+                            <AddCircleIcon fontSize="large" />
                           </Button>
                         </div>
                       </TableCell>

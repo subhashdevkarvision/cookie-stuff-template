@@ -10,7 +10,7 @@ const AllCourses = () => {
   const fetchData = async () => {
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/courses/course`
+        `${import.meta.env.VITE_BACKEND_URL}/courses/`
       );
       if (res.data.success) {
         setProducts(res.data.coursesData);

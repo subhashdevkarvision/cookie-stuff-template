@@ -49,6 +49,7 @@ export const decreamentCartApi = createAsyncThunk(
     const token = JSON.parse(localStorage.getItem("token"));
     await axios.patch(
       `${import.meta.env.VITE_BACKEND_URL}/cart/decreament/${courseId}`,
+      {},
       { headers: { Authorization: `Bearer ${token}` } }
     );
     dispatch(fetchUserCart());
@@ -67,15 +68,20 @@ export const removeFromCartApi = createAsyncThunk(
     dispatch(fetchUserCart());
   }
 );
+
 const cartSlice = createSlice({
   name: "cart",
   initialState,
-  reducers: {},
+  reducers: {
+    clearCart: (state) => {
+      state.cartItems = [];
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchUserCart.fulfilled, (state, action) => {
       state.cartItems = action.payload;
     });
   },
 });
-
+export const { clearCart } = cartSlice.actions;
 export default cartSlice.reducer;

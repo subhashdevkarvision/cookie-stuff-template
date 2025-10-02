@@ -13,6 +13,7 @@ const Card = ({ foodItem }) => {
   const product = useSelector((state) =>
     state.cart.cartItems.find((item) => item.courseId._id === foodItem._id)
   );
+  const user = useSelector((state) => state.user.userData);
   const navigate = useNavigate();
 
   const handleIncrementQty = async (id) => {
@@ -26,7 +27,11 @@ const Card = ({ foodItem }) => {
     }
   };
   const handleAddToCart = async (item) => {
-    dispatch(addToCartApi({ id: item._id }));
+    if (!user) {
+      navigate("/login");
+    } else {
+      dispatch(addToCartApi({ id: item._id }));
+    }
   };
 
   return (
