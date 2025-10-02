@@ -6,7 +6,7 @@ import {
   addToCartApi,
   decreamentCartApi,
   increamentCartApi,
-} from "../../featuresSlice/cartSlices";
+} from "../../reduxSlices/cartSlices";
 
 const Card = ({ foodItem }) => {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const Card = ({ foodItem }) => {
   return (
     <div id="card" onClick={() => navigate(`/courses/${foodItem._id}`)}>
       <img
-        src={`http://localhost:4000/${foodItem.imgUrl}`}
+        src={`${import.meta.env.VITE_BACKEND_URL}/${foodItem.imgUrl}`}
         id="CardImg"
         alt={foodItem.title}
       />
@@ -69,10 +69,10 @@ const Card = ({ foodItem }) => {
               }}
               onClick={(e) => {
                 e.stopPropagation();
-                handleIncrementQty(foodItem._id);
+                handleDecrementQty(foodItem._id);
               }}
             >
-              +
+              -
             </button>
             <span>{product.qty}</span>
             <button
@@ -85,10 +85,10 @@ const Card = ({ foodItem }) => {
               }}
               onClick={(e) => {
                 e.stopPropagation();
-                handleDecrementQty(foodItem._id);
+                handleIncrementQty(foodItem._id);
               }}
             >
-              -
+              +
             </button>
           </div>
         ) : (

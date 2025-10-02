@@ -3,9 +3,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import "./slider.css";
-import FrontSection from "../FrontSection/FrontSection";
-import SecondBanner from "../FrontSection/second-slider-img/SecondSliderBanner";
-import ThirdSliderBanner from "../FrontSection/third-slider-img/ThirdSliderBanner";
+import FrontSection from "../frontSection/FrontSection";
+import SecondBanner from "../frontSection/second-slider-img/SecondSliderBanner";
+import ThirdSliderBanner from "../frontSection/third-slider-img/ThirdSliderBanner";
 const SliderSection = () => {
   const settings = {
     dots: true,
@@ -14,7 +14,7 @@ const SliderSection = () => {
     speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 5000,
     adaptiveHeight: true,
   };

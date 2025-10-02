@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Card from "../Card/Card";
 import "./freeRecipes.css";
 import ViewAllButton from "../viewAllButton/ViewAllButton";
 import axios from "axios";
+import Card from "../Card/Card";
 
 const FreeRecipes = ({ backgroundColor }) => {
   const [freeReceipsItem, setFreeReceipsItem] = useState([]);
   const fetchData = async () => {
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/courses/course`
+        `${import.meta.env.VITE_BACKEND_URL}/courses/`
       );
       if (res.data.success) {
         setFreeReceipsItem(res.data.coursesData);

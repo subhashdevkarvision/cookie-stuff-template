@@ -1,6 +1,6 @@
 import React from "react";
-import Postcard from "../PostCard/Postcard";
-import "./ReadPost.css";
+import Postcard from "../postCard/Postcard";
+import "./readPost.css";
 import { useSelector } from "react-redux";
 
 const ReadPost = () => {

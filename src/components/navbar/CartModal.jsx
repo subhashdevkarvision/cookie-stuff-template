@@ -21,18 +21,13 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import {
-//   incrementItems,
-//   decrementFromCart,
-//   removeFromCart,
-// } from "../../featuresSlice/featureSlices";
-import "./CartModal.css";
+import "./cartModal.css";
 import {
   decreamentCartApi,
-  fetchCart,
+  fetchUserCart,
   increamentCartApi,
   removeFromCartApi,
-} from "../../featuresSlice/cartSlices";
+} from "../../reduxSlices/cartSlices";
 
 const CartModal = ({ open, handleClose }) => {
   const [tablePage, setTablePage] = useState(0);
@@ -72,7 +67,7 @@ const CartModal = ({ open, handleClose }) => {
     return total;
   }, 0);
   useEffect(() => {
-    dispatch(fetchCart());
+    dispatch(fetchUserCart());
   }, []);
   return (
     <>
@@ -146,7 +141,9 @@ const CartModal = ({ open, handleClose }) => {
                         align="center"
                       >
                         <img
-                          src={`http://localhost:4000/${item.courseId.imgUrl}`}
+                          src={`${import.meta.env.VITE_BACKEND_URL}/${
+                            item.courseId.imgUrl
+                          }`}
                           className="cart-img"
                           alt=""
                         />

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./healthyRecipes.css";
-import Card from "../Card/Card";
 import ViewAllButton from "../viewAllButton/ViewAllButton";
 import axios from "axios";
+import Card from "../Card/Card";
 
 const HealthyRecipes = () => {
   const [healthyRecipesItems, setHealthyRecipesItems] = useState([]);
   const fetchData = async () => {
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/courses/course`
+        `${import.meta.env.VITE_BACKEND_URL}/courses/`
       );
       if (res.data.success) {
         setHealthyRecipesItems(res.data.coursesData);

@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar/Navbar";
-import Card from "../components/Card/Card";
-import Footer from "../components/Footer/Footer";
+import Footer from "../components/footer/Footer";
 import CartModal from "../components/navbar/CartModal";
 import axios from "axios";
+import Card from "../components/Card/Card";
 
 const AllCourses = () => {
-  const [open, setOpen] = useState(false);
   const [products, setProducts] = useState([]);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const fetchData = async () => {
     try {
       const res = await axios.get(
@@ -28,8 +25,6 @@ const AllCourses = () => {
 
   return (
     <div>
-      <Navbar handleOpen={handleOpen} />
-      <CartModal open={open} handleClose={handleClose} />
       <div className="px-[4rem] md:px-[5.3rem]" style={{ margin: "10rem 0" }}>
         <h1 className="text-center text-4xl mb-10">All Courses</h1>
         <div
@@ -44,7 +39,6 @@ const AllCourses = () => {
             products.map((item, index) => <Card key={index} foodItem={item} />)}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

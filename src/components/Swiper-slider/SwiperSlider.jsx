@@ -3,9 +3,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import ReviewCard from "../ReviewCards/ReviewCard";
-import reviewData from "../../Data/ReviewsData";
-import "../ReviewsSection/ReviewSection.css";
+import ReviewCard from "../reviewCards/ReviewCard";
+import reviewData from "../../data/reviewsData";
+import "../reviewsSection/reviewSection.css";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 const SwiperSlider = () => {

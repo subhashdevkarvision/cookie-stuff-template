@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { GlobalContext } from "./GlobalContext";
+import { GlobalContext } from "./globalContext";
 
 const GlobalContextProvider = ({ children }) => {
   const [theme, setTheme] = useState("light");

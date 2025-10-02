@@ -1,14 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/Footer/Footer";
+import Footer from "../components/footer/Footer";
 import { useLocation } from "react-router";
-import { GlobalContext } from "../GlobalContext/GlobalContext";
+import { GlobalContext } from "../globalContext/globalContext";
 import CartModal from "../components/navbar/CartModal";
 
 const SinglePostPage = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const location = useLocation();
   const { post } = location.state;
 
@@ -19,8 +16,6 @@ const SinglePostPage = () => {
   }
   return (
     <div className={theme === "light" ? "light" : "dark"}>
-      <Navbar handleOpen={handleOpen} />
-      <CartModal open={open} handleClose={handleClose} />
       <div style={{ padding: "5rem" }} className="poppins-font">
         <div
           style={{
@@ -86,7 +81,6 @@ const SinglePostPage = () => {
           veritatis. Fugit.
         </p>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import Card from "../Card/Card";
-import "./feartureSection.css";
+import "./featureSection.css";
 import axios from "axios";
+import Card from "../Card/Card";
 
 const Fearture = () => {
   const [fertureItems, setFertureItems] = useState([]);
   const featureHandler = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/courses/course`
+        `${import.meta.env.VITE_BACKEND_URL}/courses/`
       );
       if (response.data.success) {
         setFertureItems(response.data.coursesData);

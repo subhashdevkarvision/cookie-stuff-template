@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/logo.png";
-// import searchVector from "../../assets/search-Vector.png";
 import "./navbar.css";
 import { Link, NavLink, useNavigate } from "react-router";
-// import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCart } from "../../featuresSlice/cartSlices";
+import { fetchUserCart } from "../../reduxSlices/cartSlices";
+import { fetchUser, logOut } from "../../reduxSlices/userSlice";
+import toast from "react-hot-toast";
 
 const Navbar = ({ handleOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.cart.cartItems);
+  const user = useSelector((state) => state.user.userData);
+  const isAuth = Boolean(user);
+
   const navigate = useNavigate();
   useEffect(() => {
-    dispatch(fetchCart());
+    dispatch(fetchUser());
+    dispatch(fetchUserCart());
   }, []);
 
   return (
@@ -71,10 +75,34 @@ const Navbar = ({ handleOpen }) => {
               <span className="cart-badge">{products.length}</span>
             )}
           </div>
-          <span onClick={() => navigate("/login")}>Sign In</span>
-          <button onClick={() => navigate("/register")} className="signupBtn">
-            Sign Up
-          </button>
+          {isAuth ? (
+            <>
+              {/* <span className="bg-[#F99106] text-white px-4 py-2 text-3xl rounded-full poppins-font">
+                {userData.fullName.charAt(0).toUpperCase()}
+              </span> */}
+              <span className="bi bi-person-circle text-5xl text-[#F99106]"></span>
+              <button
+                onClick={() => {
+                  dispatch(logOut());
+                  dispatch(fetchUserCart());
+                  toast.success("Log Out successfully");
+                }}
+                className="signupBtn"
+              >
+                Log Out
+              </button>
+            </>
+          ) : (
+            <>
+              <span onClick={() => navigate("/login")}>Sign In</span>
+              <button
+                onClick={() => navigate("/register")}
+                className="signupBtn"
+              >
+                Sign Up
+              </button>
+            </>
+          )}
         </div>
         <div className="ham">
           <button

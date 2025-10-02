@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import ReviewCard from "../ReviewCards/ReviewCard";
-import reviewData from "../../Data/ReviewsData";
-import "./ReviewSection.css";
+import ReviewCard from "../reviewCards/ReviewCard";
+import reviewData from "../../data/reviewsData";
+import "./reviewSection.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";

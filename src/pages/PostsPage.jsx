@@ -1,20 +1,15 @@
-import React, { useState } from "react";
-import Postcard from "../components/PostCard/Postcard";
+import React from "react";
+import Postcard from "../components/postCard/Postcard";
 import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/Footer/Footer";
+import Footer from "../components/footer/Footer";
 import { useSelector } from "react-redux";
 import CartModal from "../components/navbar/CartModal";
 
 const PostsPage = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const posts = useSelector((state) => state.product.postData);
   console.log(posts);
   return (
     <div>
-      <Navbar handleOpen={handleOpen} />
-      <CartModal open={open} handleClose={handleClose} />
       <div className="px-[4rem] md:px-[5.3rem]" style={{ margin: "10rem 0" }}>
         <h1 className="text-4xl mb-10" style={{ textAlign: "center" }}>
           All Posts (Blogs)
@@ -31,7 +26,6 @@ const PostsPage = () => {
             posts.map((item, index) => <Postcard key={index} post={item} />)}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

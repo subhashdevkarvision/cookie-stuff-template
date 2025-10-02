@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/Footer/Footer";
+import Footer from "../components/footer/Footer";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import "../../src/courseDetails.css";
@@ -15,17 +15,14 @@ import linkden from "../assets/linkedin.png";
 import insta from "../assets/insta.png";
 import fb from "../assets/fb.png";
 import sky from "../assets/sky.png";
-import FreeRecipes from "../components/FreeRecipes/FreeRecipes";
-import ContactUs from "../components/ContactUs/ContactUs";
+import FreeRecipes from "../components/freeRecipes/FreeRecipes";
+import ContactUs from "../components/contactUs/ContactUs";
 import CartModal from "../components/navbar/CartModal";
-import Card from "../components/Card/Card";
-import { fetchCourse } from "../featuresSlice/featureSlices";
+import { fetchCourse } from "../reduxSlices/featureSlices";
 import axios from "axios";
+import Card from "../components/Card/Card";
 
 const CourseDetails = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
   const { id } = useParams();
   const [course, setCourse] = useState({});
   const dispatch = useDispatch();
@@ -33,7 +30,7 @@ const CourseDetails = () => {
   const fetchCourseById = async () => {
     try {
       const res = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/courses/course/${id}`
+        `${import.meta.env.VITE_BACKEND_URL}/courses/${id}`
       );
       if (res.data.success) {
         setCourse(res.data.course);
@@ -44,13 +41,13 @@ const CourseDetails = () => {
   };
   useEffect(() => {
     dispatch(fetchCourse());
-    fetchCourseById();
   }, []);
+  useEffect(() => {
+    fetchCourseById();
+  }, [id]);
 
   return (
     <div>
-      <Navbar handleOpen={handleOpen} />
-      <CartModal open={open} handleClose={handleClose} />
       <div id="course-bg-img" className="w-full bg-gray-50 py-28 mt-32">
         <h2 className="text-6xl sm:text-[40px] yeseva-one-font">
           Course Details
@@ -121,7 +118,7 @@ const CourseDetails = () => {
           {/* image container */}
           <div className="poppins-font w-full sm:w-[65%]">
             <img
-              src={`http://localhost:4000/${course.imgUrl}`}
+              src={`${import.meta.env.VITE_BACKEND_URL}/${course.imgUrl}`}
               className="w-full h-[300px] md:h-[200px] lg:h-[270px] xl:h-[320px] object-cover object-center rounded-t-2xl"
               alt=""
             />
@@ -231,10 +228,16 @@ const CourseDetails = () => {
                   <Card key={index} foodItem={item} />
                 )
             )}
+          {products?.length > 0 &&
+            products?.map(
+              (item, index) =>
+                item.category === "HealthyRecepies" && (
+                  <Card key={index} foodItem={item} />
+                )
+            )}
         </div>
       </div>
       <ContactUs />
-      <Footer />
     </div>
   );
 };

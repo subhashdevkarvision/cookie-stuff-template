@@ -34,9 +34,7 @@ const initialState = {
   ],
 };
 export const fetchCourse = createAsyncThunk("fetch/courses", async () => {
-  const res = await axios.get(
-    `${import.meta.env.VITE_BACKEND_URL}/courses/course`
-  );
+  const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/courses`);
   return res.data.coursesData;
 });
 

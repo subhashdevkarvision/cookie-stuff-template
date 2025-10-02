@@ -1,5 +1,5 @@
 import React from "react";
-import "./ContactUs.css";
+import "./contactUs.css";
 import contactLogo from "../../assets/logoContact.png";
 import { useNavigate } from "react-router";
 

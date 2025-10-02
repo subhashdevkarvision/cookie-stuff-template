@@ -159,3 +159,7 @@ body {
 .register-page {
   align-items: start;
 }
+
+.registerBg {
+  background-image: url("./assets/registerbg.png");
+}
