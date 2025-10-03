@@ -3,7 +3,7 @@ import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import CartModal from "../components/navbar/CartModal";
 import axios from "axios";
-import Card from "../components/Card/Card";
+import Card from "../components/card/Card";
 
 const AllCourses = () => {
   const [products, setProducts] = useState([]);

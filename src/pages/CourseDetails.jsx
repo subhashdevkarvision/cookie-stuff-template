@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/footer/Footer";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import "../../src/courseDetails.css";
@@ -15,12 +13,10 @@ import linkden from "../assets/linkedin.png";
 import insta from "../assets/insta.png";
 import fb from "../assets/fb.png";
 import sky from "../assets/sky.png";
-import FreeRecipes from "../components/freeRecipes/FreeRecipes";
 import ContactUs from "../components/contactUs/ContactUs";
-import CartModal from "../components/navbar/CartModal";
 import { fetchCourse } from "../reduxSlices/featureSlices";
 import axios from "axios";
-import Card from "../components/Card/Card";
+import Card from "../components/card/Card";
 
 const CourseDetails = () => {
   const { id } = useParams();

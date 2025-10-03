@@ -27,6 +27,8 @@ import {
   increamentCartApi,
   removeFromCartApi,
 } from "../../reduxSlices/cartSlices";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
 
 const CartModal = ({ open, handleClose }) => {
   const [tablePage, setTablePage] = useState(0);
@@ -35,7 +37,7 @@ const CartModal = ({ open, handleClose }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.cart.cartItems);
-
+  const stripePromise = loadStripe(import.meta.env.VITE_PUBLISHABLE_KEY);
   const displayTableItems = products.slice(
     tablePage * rowsPerPage,
     tablePage * rowsPerPage + rowsPerPage
@@ -56,7 +58,16 @@ const CartModal = ({ open, handleClose }) => {
       handleConfirmClose();
     }
   };
-
+  const handleCheckout = async () => {
+    await stripePromise;
+    const token = JSON.parse(localStorage.getItem("token"));
+    const res = await axios.post(
+      `${import.meta.env.VITE_BACKEND_URL}/checkout`,
+      { cartItems: products },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    window.location.href = res.data.url;
+  };
   const totalQty = products.reduce((total, item) => {
     total += item.qty;
     return total;
@@ -250,6 +261,11 @@ const CartModal = ({ open, handleClose }) => {
                     }}
                   >
                     &#8377;{grandTotal}
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <button onClick={handleCheckout}>Check out</button>
                   </TableCell>
                 </TableRow>
               </TableBody>

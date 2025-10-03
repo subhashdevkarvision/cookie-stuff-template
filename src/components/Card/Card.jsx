@@ -1,7 +1,6 @@
-import React from "react";
 import "./card.css";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import {
   addToCartApi,
   decreamentCartApi,

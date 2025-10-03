@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./freeRecipes.css";
 import ViewAllButton from "../viewAllButton/ViewAllButton";
 import axios from "axios";
-import Card from "../Card/Card";
+import Card from "../card/Card";
 
 const FreeRecipes = ({ backgroundColor }) => {
   const [freeReceipsItem, setFreeReceipsItem] = useState([]);

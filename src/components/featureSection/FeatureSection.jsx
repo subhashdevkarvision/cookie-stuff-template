@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./featureSection.css";
 import axios from "axios";
-import Card from "../Card/Card";
+import Card from "../card/Card";
 
 const Fearture = () => {
   const [fertureItems, setFertureItems] = useState([]);
