@@ -15,6 +15,10 @@ import LoginPage from "./pages/LoginPage";
 import { Toaster } from "react-hot-toast";
 import Footer from "./components/footer/Footer";
 import Layout from "./components/Layout";
+import { Elements } from "@stripe/react-stripe-js";
+import PaymentForm from "./components/paymentForm/PaymentForm";
+import PaymentPage from "./pages/PaymentPage";
+import PaymentStatusPage from "./pages/PaymentStatusPage";
 
 const App = () => {
   return (
@@ -33,6 +37,8 @@ const App = () => {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
           </Route>
+          <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/payment-result" element={<PaymentStatusPage />} />
         </Routes>
       </GlobalContextProvider>
     </>
